@@ -55,7 +55,7 @@ module.exports = [
     handler: user.validateUser
   },
   {
-    path: '/{param*}',
+    path: '/assets/{param*}',
     method: 'GET',
     handler: {
       directory: {
@@ -63,5 +63,10 @@ module.exports = [
         index: ['index.html']
       }
     }
+  },
+  {
+    method: ['GET', 'POST'],
+    path: '/{any*}',
+    handler: site.notFound
   }
 ]
