@@ -35,6 +35,11 @@ module.exports = [
     handler: site.login
   },
   {
+    path: '/logout',
+    method: 'GET',
+    handler: user.logout
+  },
+  {
     path: '/validate-user',
     method: 'POST',
     options: {
