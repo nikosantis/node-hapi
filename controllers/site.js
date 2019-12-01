@@ -1,9 +1,19 @@
 'use strict'
 
-function home (req, h) {
+const questions = require('../models/index').questions
+
+async function home (req, h) {
+  let data
+  try {
+    data = await questions.getLast(10)
+  } catch (error) {
+    console.log(error)
+  }
+
   return h.view('index', {
     title: 'home',
-    user: req.state.user
+    user: req.state.user,
+    questions: data
   })
 }
 
