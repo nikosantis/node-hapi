@@ -32,9 +32,14 @@ module.exports = [
     handler: user.createUser
   },
   {
-    path: '/login',
     method: 'GET',
+    path: '/login',
     handler: site.login
+  },
+  {
+    method: 'GET',
+    path: '/question/{id}',
+    handler: site.viewQuestion
   },
   {
     method: 'GET',
