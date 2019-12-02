@@ -32,6 +32,23 @@ class Questions {
     answers.set({text: data.answer, user: user})
     return answers
   }
+
+  async setAnswerRight (questionId, answerId, user) {
+    const query = await this.collection.child(questionId).once('value')
+    const question = query.val()
+    const answers = questions.answers
+
+    if (!user.email === question.owner.email) {
+      return false
+    }
+
+    for (let key in answers) {
+      answers[key].correct = (key === answerId)
+    }
+
+    const update = await this.collection.child(questionId).child('answer').update(answers)
+    return update
+  }
 }
 
 module.exports = Questions
