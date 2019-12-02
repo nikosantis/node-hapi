@@ -36,7 +36,7 @@ class Questions {
   async setAnswerRight (questionId, answerId, user) {
     const query = await this.collection.child(questionId).once('value')
     const question = query.val()
-    const answers = questions.answers
+    const answers = question.answers
 
     if (!user.email === question.owner.email) {
       return false
@@ -46,7 +46,7 @@ class Questions {
       answers[key].correct = (key === answerId)
     }
 
-    const update = await this.collection.child(questionId).child('answer').update(answers)
+    const update = await this.collection.child(questionId).child('answers').update(answers)
     return update
   }
 }

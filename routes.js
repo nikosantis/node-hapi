@@ -94,6 +94,11 @@ module.exports = [
     handler: question.answerQuestion
   },
   {
+    method: 'GET',
+    path: '/answer/{questionId}/{answerId}',
+    handler: question.setAnswerRight
+  },
+  {
     path: '/assets/{param*}',
     method: 'GET',
     handler: {
