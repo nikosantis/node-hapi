@@ -23,6 +23,7 @@
     "@hapi/vision": "^5.5.4",
     "bcrypt": "^3.0.7",
     "firebase-admin": "^8.8.0",
-    "handlebars": "^4.5.3"
+    "handlebars": "^4.5.3",
+    "uuid": "^3.3.3"
   }
 }
