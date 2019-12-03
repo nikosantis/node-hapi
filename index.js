@@ -42,6 +42,13 @@ async function init () {
       }
     })
 
+    await server.register({
+      plugin: require('./lib/api'),
+      options: {
+        prefix: 'api'
+      }
+    })
+
     server.method('setAnswerRight', methods.setAnswerRight)
     server.method('getLast', methods.getLast, {
       cache: {
