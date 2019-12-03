@@ -3,12 +3,7 @@
 const questions = require('../models/index').questions
 
 async function home (req, h) {
-  let data
-  try {
-    data = await questions.getLast(10)
-  } catch (error) {
-    console.log(error)
-  }
+  const data = await req.server.methods.getLast(10)
 
   return h.view('index', {
     title: 'home',

@@ -26,6 +26,12 @@ async function init () {
     await server.register(Vision)
 
     server.method('setAnswerRight', methods.setAnswerRight)
+    server.method('getLast', methods.getLast, {
+      cache: {
+        expiresIn: 1000 * 60,
+        generateTimeout: 2000
+      }
+    })
 
     server.state('user', {
       ttl: 1000 * 60 * 60 * 24 * 7,
