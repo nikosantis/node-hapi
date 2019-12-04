@@ -1,9 +1,9 @@
 'use strict'
 
 const Hapi = require('@hapi/hapi')
+const Crumb = require('@hapi/crumb')
 const handlerbars = require('./lib/helpers')
 const inert = require('@hapi/inert')
-const good = require('@hapi/good')
 const methods = require('./lib/methods')
 const path = require('path')
 const routes = require('./routes')
@@ -38,6 +38,17 @@ async function init () {
             },
             'stdout'
           ]
+        }
+      }
+    })
+
+    await server.register({
+      plugin: Crumb,
+
+      // plugin options
+      options: {
+        cookieOptions: {
+          isSecure: process.env.NODE_ENV === 'prod'
         }
       }
     })
