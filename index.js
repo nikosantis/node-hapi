@@ -67,6 +67,13 @@ async function init () {
     }])
 
     await server.register({
+      plugin: require('hapi-dev-errors'),
+      options: {
+        showErrors: process.env.NODE_ENV !== 'production'
+      }
+  })
+
+    await server.register({
       plugin: require('./lib/api'),
       options: {
         prefix: 'api'
