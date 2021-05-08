@@ -29,7 +29,7 @@
     "bcrypt": "^3.0.7",
     "blankie": "^4.1.1",
     "firebase-admin": "^8.8.0",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "hapi-dev-errors": "^3.3.0",
     "uuid": "^3.3.3"
   }
